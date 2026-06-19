@@ -44,7 +44,7 @@
             display: flex;
             flex-direction: column;
             gap: 30px;
-            max-width: 1100px; /* Widened slightly to ensure everything fits comfortably */
+            max-width: 1100px; 
             width: 95%;
             margin: 40px auto;
         }
@@ -82,9 +82,6 @@
             fill: var(--accent);
         }
 
-        /* THE FIX IS HERE:
-        Forcing a strict row without wrapping so it stays side-by-side 
-        */
         .workspace-grid {
             display: flex;
             flex-direction: row;
@@ -239,20 +236,28 @@
 
         .instructions {
             display: flex;
-            align-items: center;
-            gap: 10px;
+            align-items: flex-start;
+            gap: 12px;
             color: var(--text-light);
             font-size: 0.9rem;
             background: var(--paper-bg);
-            padding: 12px 24px;
+            padding: 16px 24px;
             border-radius: 8px;
             border: 1px solid var(--border-light);
         }
 
+        .instructions-text-block {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
         .svg-icon {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             fill: currentColor;
+            flex-shrink: 0;
+            margin-top: 2px;
         }
     </style>
 </head>
@@ -302,9 +307,13 @@
 
         </div>
 
+        <!-- UPDATED INSTRUCTIONS PANEL -->
         <div class="instructions">
             <svg class="svg-icon" viewBox="0 0 24 24" style="fill: #3b82f6;"><path d="M11 15h2v2h-2zm0-8h2v6h-2zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>
-            <span><strong>Pro Tip:</strong> Draw the digit large and centered inside the dashed box for highest accuracy.</span>
+            <div class="instructions-text-block">
+                <span><strong>Pro Tip:</strong> Draw the digit large and centered inside the dashed box for highest accuracy.</span>
+                <span style="font-size: 0.82rem; color: #94a3b8;"><strong>Note:</strong> This uses a classic Logistic Regression model instead of a modern Neural Network. Because it memorizes exact pixel locations rather than recognizing spatial shapes, it can easily be tricked if your drawing is off-center!</span>
+            </div>
         </div>
 
     </div>
