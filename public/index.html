@@ -264,11 +264,18 @@
             .workspace-grid {
                 flex-direction: column;
                 align-items: center;
+                gap: 32px;
             }
             
             .app-card {
-                padding: 20px;
+                padding: 24px;
                 margin: 20px auto;
+                width: 90%; /* Creates a perfect, balanced bezel gap */
+            }
+
+            /* Visually shrink the canvas so it physically fits on a phone screen */
+            .canvas-wrapper {
+                --canvas-size: 300px; 
             }
 
             .left-panel, .right-panel {
